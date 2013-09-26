@@ -75,13 +75,12 @@ int main(int argc,char* argv[]){
 	cpu = CPU(&interrupts);
 	cout<<"Loading file "<<argv[1]<<" \n";
 	ifstream input(argv[1],ios::in|ios::binary);
-	unsigned short * program;
 	input.seekg (0, ios::end);
 	int end = input.tellg();
 	input.seekg(0,ios::beg);
 	int begin = input.tellg();
-	program = new unsigned short[end-begin];
-	input.read((char*)program,(end-begin));
+	std::vector<unsigned short> program(end-begin);//program = new unsigned short[end-begin];
+	input.read((char*)&program[0],(end-begin));
 	cout<<"Loaded\nProgram is "<<(end-begin)/2<<" words long\nLoading CPU...\n";
 	cpu.load(program);
 	cout<<"Program dump:\n";
