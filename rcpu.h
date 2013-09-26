@@ -14,7 +14,7 @@
  *      1-12     - general use registers (12)
  *      13      - current cursor position (incremented with each step, can be changed manually or with JMP)
  *      14      - error indicator (0=no error)
- *      15      - reserved
+ *      15      - timer - each OP [or NOP] adds 1 to its value, starting from 1, can overflow
  * 
  *	Supported commands:
  *              a,b - registers id's (1-8)

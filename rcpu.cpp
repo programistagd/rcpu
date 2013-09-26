@@ -151,12 +151,12 @@ void CPU::runOneCycle(){
 		break;
 
 	case	40:
-		switch(memory[9]){
+		switch(memory[source[(*pos)]]){
 		default:
-		if(interrupt!=0 and memory[source[(*pos)]]>=17){
-                        registers[0] = interrupt->run(registers[1],registers[2]);
-		}
-		break;
+                    if(interrupt!=0 and memory[source[(*pos)]]>=17){
+                            registers[0] = interrupt->run(registers[1],registers[2]);
+                    }
+                    break;
 		}
 		break;
 
@@ -171,5 +171,6 @@ break;
 	std::cin.get();
 #endif
 	//memory[0]=(*pos);
+        registers[15]++;//increment internal timer
 }
 
