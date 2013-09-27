@@ -40,6 +40,7 @@
  *              *       20      -       SET     a,b     ]
  *              *       21      -       SET     a,m     ]       those sets first argument to value of second argument
  *              *       22      -       SET     m,a     ]
+ *              *       23      -       SET     a,v     ]  v is a numerical value
  * 
  *		*	35	-	PUSH a	-	pushes value from register a on the stack, sets error indicator to 6 on stack overflow
  *		*	37	-	POP a	-	pops value from stack and sets register a to it, if stack is empty sets a to 0 and sets error indicator to 7
@@ -51,6 +52,9 @@
  *	Special functions:
  *		*	0-16	-	reserved
  *		*	17-65535	-	for use by implementation
+ * 
+ *      Stack:
+ *              Can contain up to 16384 words
  */
 
 #ifndef RCPU8_H

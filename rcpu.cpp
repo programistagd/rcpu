@@ -53,6 +53,11 @@ void CPU::runOneCycle(){
             memory[source[(*pos)]]=registers[source[(*pos)+1]];
             (*pos)++;
             break;
+        case	23:
+            (*pos)++;
+            registers[source[(*pos)]]=source[(*pos)+1];
+            (*pos)++;
+            break;
             
         //from now order is kept
 	case	2:
@@ -133,7 +138,7 @@ void CPU::runOneCycle(){
 		break;
 	case 35:
 		(*pos)++;
-		if(stack.size()<8192)
+		if(stack.size()<16384)
 			stack.push((unsigned short)registers[source[(*pos)]]);
 		else
 			registers[14]=6;
